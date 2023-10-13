@@ -12,7 +12,7 @@ while True:
     if op == "1":
         print("Campus Virtual --> Alumno")
         print("1 -> matricularse a un curso")
-        print("2 -> Ver cursos matriculados")
+        print("2 -> Ver curso")
         print("3 -> Volver al menu principal")
         break
 
