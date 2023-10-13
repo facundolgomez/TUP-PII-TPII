@@ -1,6 +1,7 @@
 from usuario import Usuario
 from curso import Curso
 
+alumnos_registrados = []
 
 class Estudiante(Usuario):
 	def __init__(self, legajo: int, anio_inscripcion_carrera: int):
@@ -14,4 +15,7 @@ class Estudiante(Usuario):
         pass
 
 
-        
+estudiante1 = Estudiante(423423, 2020)
+
+alumnos_registrados.append(estudiante1)
+
