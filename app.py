@@ -1,5 +1,4 @@
 
-#TP2-Programacion2
 
 def main():
     ejecutar_programa = True 
@@ -74,4 +73,5 @@ def main():
             ejecutar_programa = False  
 
 main()
+
 
