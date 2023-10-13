@@ -1,6 +1,9 @@
 from usuario import Usuario
 from curso import Curso
 
+
+lista_alum_registrado = []
+
 class Estudante(Usuario):
     def __init__(self, legajo: int, anio_increcion_carrera: int):
         
