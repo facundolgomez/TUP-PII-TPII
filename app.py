@@ -1,4 +1,5 @@
 #TP2-Programacion2
+from estudiante import matricular_en_curso
 def main():
     ejecutar_programa = True 
 
@@ -34,19 +35,29 @@ def main():
                     print("0 -> para salir")
                     
                     while True:
-                        y = input("Seleccione la materia a cursar: ")
+                        opcion_curso = input("Seleccione la materia a cursar: ")
                         #Haria algo, que lo que haria seria implementar la materia al estudiante.py PROGRAMAR
-                        if y == "1":
-                            print("Se agrego la mtareia Programación I")
-                        elif y == "0":
+                        if opcion_curso == "1":
+                            matricular_en_curso(opcion_curso)
+                            print("Se agrego la matareia Programación II")
+                        if opcion_curso == "2":
+                            matricular_en_curso(opcion_curso)
+                            print("Se agrego la matareia Programación I")
+                        if opcion_curso == "3":
+                            matricular_en_curso(opcion_curso)
+                            print("Se agrego la matareia Laboratorio II")
+                        if opcion_curso == "4":
+                            matricular_en_curso(opcion_curso)
+                            print("Se agrego la matareia Inglés I")
+                        if opcion_curso == "5":
+                            matricular_en_curso(opcion_curso)
+                            print("Se agrego la matareia Inglés II")
+                        elif opcion_curso == "0":
                             break          
                         else:
-                            print("Opción no válida. Seleccione 1, 2, 3 o 4...")
-                    
-
+                            print("Opción no válida. Seleccione una opcion correcta")
                 elif x == "2":
                     pass
-
                 elif x == "3":
                     continue  
                 else: 
@@ -65,7 +76,15 @@ def main():
             x = input("Seleccione una opción: ")
 
         elif op == "3":
-            print("Materias:")
+            cursos = [
+                {"nombre": "InglesI", "carrera": "Tecnicatura Universitaria en Programación"},
+                {"nombre": "InglesII", "carrera": "Tecnicatura Universitaria en Programación"},
+                {"nombre": "Laboratorio I", "carrera": "Tecnicatura Universitaria en Programación"},
+                {"nombre": "Laboratorio II", "carrera": "Tecnicatura Universitaria en Programación"},
+                {"nombre": "Programación I", "carrera": "Tecnicatura Universitaria en Programación"},
+                {"nombre": "Programación II", "carrera": "Tecnicatura Universitaria en Programación"}
+            ]
+            print("Materias")
             #Mostrar lista de todas las materias de campus 
 
         elif op == "4":
