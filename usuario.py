@@ -19,6 +19,7 @@ class Usuario(ABC):
 
     
     def __str__(self):
+        pass
 
 
     def str(self):
