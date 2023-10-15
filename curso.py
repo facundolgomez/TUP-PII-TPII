@@ -1,6 +1,4 @@
 
-
-
 class Curso:
     def __init__(self, nombre: str, contrasenia_metriculacion: str):
         self.__nombre = nombre

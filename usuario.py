@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+#Esta es la clase abstracta, clase padre de Profesor y Estudiante
 class Usuario(ABC):
     conj_emails = set()
 
@@ -7,6 +8,7 @@ class Usuario(ABC):
         self.nombre = nombre
         self.apellido = apellido
 
+        #Aca cuando se crea una instancia se valida que el mail sea unico en base a un conjunto ya que no se puede repetir elementos
         if email in Usuario.conj_emails:
             raise ValueError("El email ya existe, debe proporcionar otro")
         else:
@@ -16,8 +18,7 @@ class Usuario(ABC):
         self.contrasenia = contrasenia
 
     def __str__(self):
-
-        return f"Usuario: {self.nombre} {self.apellido}, Email: {self.email}"
+        pass
 
 
     @abstractmethod
