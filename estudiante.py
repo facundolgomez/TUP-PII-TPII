@@ -1,25 +1,58 @@
 from usuario import Usuario
 from curso import Curso
-from app import main
+
 
 
 lista_alum_registrado = []
 lista_mi_cursos = []
 
-class Estudante(Usuario):
-    def __init__(self, legajo: int, anio_increcion_carrera: int, nombre: str, apellido: str, email: str, contrasena: str):
-        super().__init__(nombre, apellido, email, contrasena)
+
+class Estudiante(Usuario):
+    def __init__(self, nombre: str, apellido: str, email: str, contrasenia: str, legajo: int, anio_inscrpcion_carrera: int):
+        super().__init__(nombre, apellido, email, contrasenia)
         self.__legajo = legajo
-        self.__anio_increcion_carrera = anio_increcion_carrera
+        self.__anio_inscripcion_carrera = anio_inscrpcion_carrera
         
-    def matricularse(self, curso):
-        self.mi_cursos.append(curso.nombre)
+    def __str__(self):
+        pass
+
+    def matricular_en_curso(self, curso: Curso):
+        pass
+
+    def validar_credenciales(self, email: str, contrasenia_ingresada: str):
+        acceso_concedido = False  
+
+        for alumno in lista_alum_registrado:
+            if alumno.email == email and alumno.contrasenia == contrasenia_ingresada:
+                acceso_concedido = True
+                print("ACCESO CONCEDIDO")
+                return acceso_concedido  
+            
+        else:
+            print("Correo electrónico o contraseña incorrecta")
     
-def __str__(self):
-    pass
+    
+   
+
+
+
+
+estudiante1 = Estudiante("franco", "gonzalez", "mail", "contra", 434312, 2022)
+lista_alum_registrado.append(estudiante1)
+
+#funcion para buscar si el estudiante existe
+def buscando_estudiante(email):
+    for estudiante in lista_alum_registrado:
+        if estudiante.email == email:
+            return estudiante
+    return None
+
+    
+    
 
  #<----------------Hecho por salvi XD nose si estara bien :D espero que si-------------------------->
-    
+  
+"""    
 def matricular_en_curso(self,opcion_curso,nombre: str, contrasena: str, curso : Curso):
     print("Lista de cursos disponibles:")
     for i, curso in enumerate(lista_mi_cursos, start=1):
@@ -39,27 +72,12 @@ def matricular_en_curso(self,opcion_curso,nombre: str, contrasena: str, curso : 
             print(f"Te has matriculado en el curso '{select_curso}'")
         else:
             print("Contraseña de matriculación incorrecta.")
+            """
             
 
-def validar_credenciales(self, email: str, contrasena: str):
-    for alumno in lista_alum_registrado:
-        if alumno.email == email and alumno.contrasena == contrasena:
-            print("Acceso concedido")
-        return
-    print("Correo electronico o contraseña incorrecta ")
     
         
     
-    
-
-    
-        
-        
-    
-        
-estudante1 = Estudante(425323, 2022)
-lista_alum_registrado.append(estudante1)
-
 
 
 
