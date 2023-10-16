@@ -8,26 +8,37 @@ lista_mi_cursos = []
 
 
 class Estudiante(Usuario):
-    def __init__(self, nombre: str, apellido: str, email: str, contrasenia: str, legajo: int, anio_inscrpcion_carrera: int):
+    def __init__(self, nombre, apellido, email, contrasenia, legajo, anio_inscripcion_carrera):
         super().__init__(nombre, apellido, email, contrasenia)
         self.__legajo = legajo
-        self.__anio_inscripcion_carrera = anio_inscrpcion_carrera
-        
+        self.__anio_inscripcion_carrera = anio_inscripcion_carrera
+        self.mi_cursos = []  
+
     def __str__(self):
         pass
 
     def matricular_en_curso(self, curso: Curso):
-        pass
+        if curso in lista_mi_cursos:
+            contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso.nombre}': ")
 
-    def validar_credenciales(self, email: str, contrasenia_ingresada: str):
+            # Validar la contraseña
+            if contrasenia_matriculacion == curso.contrasenia:
+                self.mi_cursos.append(curso)
+                print(f"Te has matriculado en el curso '{curso.nombre}'.")
+            else:
+                print("Contraseña de matriculación incorrecta.")
+        else:
+            print("El curso seleccionado no está disponible.")
+
+
+    
+    def validar_credenciales(self, email: str, contrasenia_ingresada: str) -> bool:
         acceso_concedido = False  
-
         for alumno in lista_alum_registrado:
             if alumno.email == email and alumno.contrasenia == contrasenia_ingresada:
                 acceso_concedido = True
-                print("ACCESO CONCEDIDO")
+                print("ACCESO EXITOSO")
                 return acceso_concedido  
-            
         else:
             print("Correo electrónico o contraseña incorrecta")
     
@@ -40,7 +51,11 @@ class Estudiante(Usuario):
 estudiante1 = Estudiante("franco", "gonzalez", "mail", "contra", 434312, 2022)
 lista_alum_registrado.append(estudiante1)
 
-#funcion para buscar si el estudiante existe
+
+estudiante2 = Estudiante("lucas", "diaz", "otromail", "contra", 75632, 2022)
+lista_alum_registrado.append(estudiante2)
+
+#funcion para buscar si el estudiante existe, no pertenece a la clase
 def buscando_estudiante(email):
     for estudiante in lista_alum_registrado:
         if estudiante.email == email:
