@@ -7,7 +7,14 @@ class Curso:
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
 
     def __str__(self):
-        pass
+        return f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}"
+
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def get_contrasenia_matriculacion(self):
+        return self.__contrasenia_matriculacion    
 
 
     def __generador_contrasenia(self):
@@ -18,3 +25,6 @@ class Curso:
             contrasenia += random.choice(caracteres)
         return contrasenia
 
+
+
+        
