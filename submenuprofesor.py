@@ -22,8 +22,9 @@ def submenu(profesor_actual):
             if not profesor_actual.mis_cursos:
                 print("El profesor no ha dictado cursos todavía.")
             else:
-                for num, curso_actual in enumerate(profesor_actual.mis_cursos):
-                    print(f"{num + 1} {curso_actual.nombre}")
+                for num, curso_actual in enumerate(sorted(profesor_actual.mis_cursos, key=lambda curso: curso.nombre)):
+                    print(f"{num + 1}- {curso_actual.nombre}")
+
 
                 validacion = True
                 while validacion:
