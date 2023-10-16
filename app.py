@@ -2,7 +2,6 @@ import estudiante
 import submenualumno
 import profesor
 import submenuprofesor
-import curso
 
 
 ejecutar_programa = True 

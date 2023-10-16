@@ -1,4 +1,5 @@
-#archivo para hacer los submenu del alumno y ahorrar codigo
+import curso
+
 
 def submenu(estudiante_actual):
     while True:
@@ -7,8 +8,14 @@ def submenu(estudiante_actual):
         print("3 -> Volver al menú principal")
         op = input("Seleccione una opción: ")
         if op == "1":
-        #matricularse a un curso
-            pass
+            if not estudiante_actual.lista_cursos_campus:
+                print("No hay cursos disponibles")
+            else:
+                for num, curso_actual in enumerate(sorted(estudiante_actual.lista_cursos_campus, key=lambda curso: curso.nombre)):
+                    print(f"{num + 1}- {curso_actual.nombre}")
+
+                materia = input("Ingrese el nombre del curso a matricularse: ")  
+                estudiante_actual.matricular_en_curso(materia)    
         
         elif op == "2":
             #ver curso
@@ -23,12 +30,6 @@ def submenu(estudiante_actual):
 
 
 def materias():
-    print("<-- Lista de cursos del Campus Virtual -->")
-    print("1 -> Programación I")
-    print("2 -> Programación II")
-    print("3 -> Laboratorio II")
-    print("4 -> Inglés I")
-    print("5 -> Inglés II")
     op = int(input("Seleccione una opción: "))
     #forma rapida de validar de 1 a 5
     while op not in [1, 2, 3, 4, 5]:
