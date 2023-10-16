@@ -18,8 +18,6 @@ class Profesor(Usuario):
         pass
 
     
-    #<----------------Hecho por salvi XD nose si estara bien :D espero que si-------------------------->
-    
     def validar_credenciales(self, email, contrasenia_ingresada) -> bool:
         acceso_concedido = False
         for profe in lista_profes_registrados:
@@ -39,3 +37,6 @@ def buscando_profesor(email):
         if profe.email == email:
             return profe
     return None
+
+
+  
