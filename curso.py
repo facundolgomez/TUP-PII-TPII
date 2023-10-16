@@ -10,10 +10,12 @@ class Curso:
         return f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}"
 
 
-    def get_nombre(self):
+    @property
+    def nombre(self):
         return self.__nombre
 
-    def get_contrasenia_matriculacion(self):
+    @property
+    def contrasenia_matriculacion(self):
         return self.__contrasenia_matriculacion    
 
 
