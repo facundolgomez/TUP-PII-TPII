@@ -4,31 +4,34 @@ from curso import Curso
 
 
 lista_alum_registrado = []
-lista_mi_cursos = []
-
 
 class Estudiante(Usuario):
+    lista_cursos_campus = []
     def __init__(self, nombre, apellido, email, contrasenia, legajo, anio_inscripcion_carrera):
         super().__init__(nombre, apellido, email, contrasenia)
         self.__legajo = legajo
         self.__anio_inscripcion_carrera = anio_inscripcion_carrera
-        self.mi_cursos = []  
+        self.mis_cursos = []  
 
     def __str__(self):
         pass
 
-    def matricular_en_curso(self, curso: Curso):
-        if curso in lista_mi_cursos:
-            contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso.nombre}': ")
+    def matricular_en_curso(self, nombre_curso: Curso):
+        for curso in Estudiante.lista_cursos_campus:
+            if curso.nombre == nombre_curso:
+                contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso.nombre}': ")
 
-            # Validar la contraseña
-            if contrasenia_matriculacion == curso.contrasenia:
-                self.mi_cursos.append(curso)
-                print(f"Te has matriculado en el curso '{curso.nombre}'.")
-            else:
-                print("Contraseña de matriculación incorrecta.")
+                # Validar la contraseña
+                if contrasenia_matriculacion == curso.contrasenia_matriculacion:
+                    self.mis_cursos.append(curso)
+                    print(f"Te has matriculado en el curso '{curso.nombre}'.")
+                else:
+                    print("Contraseña de matriculación incorrecta.")
+                break
         else:
             print("El curso seleccionado no está disponible.")
+
+
 
 
     
