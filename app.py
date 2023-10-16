@@ -1,5 +1,8 @@
 import estudiante
 import submenualumno
+import profesor
+import submenuprofesor
+import curso
 
 
 ejecutar_programa = True 
@@ -13,7 +16,7 @@ while ejecutar_programa:
     print("4 -> Salir")
 
     op = input("Seleccione una opción: ")
-
+    #ingresar como alumno
     if op == "1":
         gmail = input("Ingrese su correo electrónico: ")
         password = input("Ingrese su contraseña: ")
@@ -21,16 +24,7 @@ while ejecutar_programa:
 
         if un_estudiante:
             if un_estudiante.validar_credenciales(gmail, password):
-                sub_opcion = submenualumno.submenu()
-                if sub_opcion == "1":
-                    submenualumno.materias()
-                elif sub_opcion == "2":
-                    # Hacer lo de ver curso
-                    pass
-                elif sub_opcion == "3":
-                    pass
-                else:
-                    print("Opción no válida")
+                submenualumno.submenu(un_estudiante)
             else:
                 print("Error de ingreso")
         else:
@@ -40,24 +34,22 @@ while ejecutar_programa:
     elif op == "2":
         gmail = input("Ingrese su correo electrónico: ")
         password = input("Ingrese su contraseña: ")
-        print("Campus Virtual --> Profesor")
-        print("1 -> Dictar Curso")
-        print("2 -> Ver curso")
-        print("3 -> Volver al menú principal")
-        x = input("Seleccione una opción: ")
+        un_profesor = profesor.buscando_profesor(gmail)
+
+        if un_profesor:
+            if un_profesor.validar_credenciales(gmail, password):
+                submenuprofesor.submenu(un_profesor)
+            else:
+                print("Error de ingreso")
+        else:
+            print("El profesor no existe. Debe darse de alta en alumnado.")
 
     # Lista de cursos del campus virtual    
     elif op == "3":
-        cursos = [
-            {"nombre": "Inglés I", "carrera": "Tecnicatura Universitaria en Programación"},
-            {"nombre": "Inglés II", "carrera": "Tecnicatura Universitaria en Programación"},
-            {"nombre": "Laboratorio I", "carrera": "Tecnicatura Universitaria en Programación"},
-            {"nombre": "Laboratorio II", "carrera": "Tecnicatura Universitaria en Programación"},
-            {"nombre": "Programación I", "carrera": "Tecnicatura Universitaria en Programación"},
-            {"nombre": "Programación II", "carrera": "Tecnicatura Universitaria en Programación"}
-        ]
-        print("Materias")
-        # Mostrar lista de todas las materias del campus 
+        # Aca lo que hay que hacer es mostrar mostrar una lista de todos los cursos del Campus Virtual ordenados alfabéticamente,
+        # osea que los cursos van a ser los objetos que esten creados en el modulo correspondiente
+        #y hay que mostrarlos de la forma Materia: Ingles 1 Carrera: Tecnicatura Univ en Programacion y asi en base a la cantidad de objetos que existan
+        pass
 
     elif op == "4":
         ejecutar_programa = False
