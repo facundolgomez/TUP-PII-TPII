@@ -1,5 +1,6 @@
 import profesor
 import curso
+import estudiante
 
 def submenu(profesor_actual):
     while True:
@@ -16,6 +17,9 @@ def submenu(profesor_actual):
             print(f"Curso '{nuevo_curso.nombre}' dado de alta con éxito.")
             print(f"Nombre: {nuevo_curso.nombre}")
             print(f"Contraseña: {nuevo_curso.contrasenia_matriculacion}")
+            #agregando una materia a la lista de cursos del campus
+            estudiante.Estudiante.lista_cursos_campus.append(nuevo_curso)
+
 
         elif op == "2":
             # Ver cursos
