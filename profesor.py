@@ -13,6 +13,8 @@ class Profesor(Usuario):
 
     def dictar_curso(self, curso: Curso):
         self.mis_cursos.append(curso)
+        #ordeno la lista alfabeticamente de los cursos de una instancia del profesor para que sea correcto con el orden de los cursos 
+        self.mis_cursos.sort(key=lambda curso: curso.nombre)
 
     def __str__(self):
         pass
