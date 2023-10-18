@@ -16,20 +16,22 @@ class Estudiante(Usuario):
     def __str__(self):
         pass
 
-    def matricular_en_curso(self, nombre_curso: Curso):
-        for curso in Estudiante.lista_cursos_campus:
-            if curso.nombre == nombre_curso:
-                contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso.nombre}': ")
 
-                # Validar la contraseña
-                if contrasenia_matriculacion == curso.contrasenia_matriculacion:
-                    self.mis_cursos.append(curso)
-                    print(f"Te has matriculado en el curso '{curso.nombre}'.")
-                else:
-                    print("Contraseña de matriculación incorrecta.")
-                break
+    
+    def matricular_en_curso(self, curso_seleccionado: Curso):
+        contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso_seleccionado.nombre}': ")
+
+    # Validar la contraseña
+        if contrasenia_matriculacion == curso_seleccionado.contrasenia_matriculacion:
+            if curso_seleccionado not in self.mis_cursos:
+                self.mis_cursos.append(curso_seleccionado)
+                #ordenando la lista de cursos para ese estudiante
+                self.mis_cursos.sort(key=lambda curso: curso.nombre)
+                print(f"Te has matriculado en el curso '{curso_seleccionado.nombre}'.")
         else:
-            print("El curso seleccionado no está disponible.")
+            print("Contraseña de matriculacion incorrecta.")
+
+    
 
 
 
@@ -68,29 +70,6 @@ def buscando_estudiante(email):
     
     
 
- #<----------------Hecho por salvi XD nose si estara bien :D espero que si-------------------------->
-  
-"""    
-def matricular_en_curso(self,opcion_curso,nombre: str, contrasena: str, curso : Curso):
-    print("Lista de cursos disponibles:")
-    for i, curso in enumerate(lista_mi_cursos, start=1):
-        print(f"{i}. {nombre}")
-    
-        select_curso = lista_mi_cursos[opcion_curso]
-        # Validar que el alumno no esté ya matriculado
-        if select_curso in lista_mi_cursos:
-            print("Ya estas matriculado en este curso")
-            return
-
-        contrasenia_metriculacion = input(f"Ingrese la contraseña de matriculación para '{lista_mi_cursos}': ")
-        
-        # Validar la contraseña
-        if contrasena == contrasenia_metriculacion:
-            nombre.matricularse(select_curso)
-            print(f"Te has matriculado en el curso '{select_curso}'")
-        else:
-            print("Contraseña de matriculación incorrecta.")
-            """
             
 
     
