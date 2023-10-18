@@ -45,13 +45,16 @@ while ejecutar_programa:
 
     # Lista de cursos del campus virtual    
     elif op == "3":
-        # Aca lo que hay que hacer es mostrar mostrar una lista de todos los cursos del Campus Virtual ordenados alfabéticamente,
-        # osea que los cursos van a ser los objetos que esten creados en el modulo correspondiente
-        #y hay que mostrarlos de la forma Materia: Ingles 1 Carrera: Tecnicatura Univ en Programacion y asi en base a la cantidad de objetos que existan
-        pass
+        if estudiante.Estudiante.lista_cursos_campus:
+            for curso in sorted(estudiante.Estudiante.lista_cursos_campus, key=lambda curso: curso.nombre):
+                print(f"Materia: {curso.nombre}, Carrera: Tecnicatura Universitaria en Programación")
+        else:
+            print("Todavia no hay cursos disponibles en el campus virtual")
+        
 
     elif op == "4":
         ejecutar_programa = False
+
 
 
 
