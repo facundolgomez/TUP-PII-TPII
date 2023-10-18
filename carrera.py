@@ -1,5 +1,6 @@
 #modulo de carreras, ya que el enunciado dice que el sistema cuenta con una carrera dada de alta
 
+
 class Carrera:
 	def __init__(self, nombre: str, cant_anios: int):
 		self.__nombre = nombre

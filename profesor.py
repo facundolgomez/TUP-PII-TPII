@@ -27,18 +27,6 @@ class Profesor(Usuario):
         
         
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-#Pasar a submenuprofe
-profe = Profesor("Carlos", "rodriguez", "mailprofe", "contra", "ingeniero", 1998)
-lista_profes_registrados.append(profe)
->>>>>>> 16cf1dd57bc8bc71bb6d5d5c085be7c3c78fd64b
-
-=======
-
->>>>>>> 80bef683aa130b0243ff9f40d9e757881167d43e
 
 
 

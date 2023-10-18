@@ -54,8 +54,4 @@ def submenu(profesor_actual):
             print("Opción no válida")
 
 
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 80bef683aa130b0243ff9f40d9e757881167d43e

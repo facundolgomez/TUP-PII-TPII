@@ -15,15 +15,9 @@ class Usuario(ABC):
 
         self._contrasenia = contrasenia 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     #getters y setters    
-=======
-    #agregar setters
->>>>>>> 16cf1dd57bc8bc71bb6d5d5c085be7c3c78fd64b
-=======
-    #getters y setters    
->>>>>>> 80bef683aa130b0243ff9f40d9e757881167d43e
+
     @property
     def nombre(self):
         return self._nombre
