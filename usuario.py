@@ -23,32 +23,32 @@ class Usuario(ABC):
         return self._nombre
 
     @nombre.setter
-    def nombre(self):
-        self._nombre = nombre    
+    def nombre(self, nuevo_nombre):
+        self._nombre = nuevo_nombre    
 
     @property
     def apellido(self):
         return self._apellido
 
     @apellido.setter
-    def nombre(self):
-        self._nombre = nombre    
+    def nombre(self, nuevo_apellido):
+        self._apellido = nuevo_apellido   
 
     @property
     def email(self):
         return self._email
 
     @email.setter
-    def email(self):
-        return self._email    
+    def email(self, nuevo_email):
+        self._email = nuevo_email   
 
     @property
     def contrasenia(self):
         return self._contrasenia
 
     @contrasenia.setter
-    def contrasenia(self):
-        return self._contrasenia    
+    def contrasenia(self, nueva_contrasenia):
+        self._contrasenia = nueva_contrasenia   
 
     @abstractmethod
     def validar_credenciales(self, email: str, contrasenia: str) -> bool:
