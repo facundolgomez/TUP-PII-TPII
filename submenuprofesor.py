@@ -19,6 +19,8 @@ def submenu(profesor_actual):
             print(f"Contraseña: {nuevo_curso.contrasenia_matriculacion}")
             #agregando una materia a la lista de cursos del campus
             estudiante.Estudiante.lista_cursos_campus.append(nuevo_curso)
+            #ordeno la lista definitivamente para que cuando el usuario elija un curso coincida con los indices de la lista
+            estudiante.Estudiante.lista_cursos_campus.sort(key=lambda curso: curso.nombre)
 
 
         elif op == "2":
@@ -26,26 +28,22 @@ def submenu(profesor_actual):
             if not profesor_actual.mis_cursos:
                 print("El profesor no ha dictado cursos todavía.")
             else:
-                for num, curso_actual in enumerate(sorted(profesor_actual.mis_cursos, key=lambda curso: curso.nombre)):
-                    print(f"{num + 1}- {curso_actual.nombre}")
+                for num, curso_actual in enumerate(sorted(profesor_actual.mis_cursos, key=lambda curso: curso.nombre), start=1):
+                    print(f"{num}- {curso_actual.nombre}")
 
 
                 validacion = True
                 while validacion:
-                    op = input("Ingrese el número del curso que desea ver: ")
-                    if op.isdigit():
-                        op = int(op)
-                        if 1 <= op <= len(profesor_actual.mis_cursos):
-                            validacion = False
-                        else:
-                            print("Opción no válida. Ingrese un número válido.")
+                    op = int(input("Ingrese el número del curso que desea ver: "))
+                    if 1 <= op <= len(profesor_actual.mis_cursos):
+                        validacion = False
                     else:
                         print("Opción no válida. Ingrese un número válido.")
-
-                # Obtiene el curso seleccionado
+                    
+                # obtiene el curso seleccionado
                 curso_seleccionado = profesor_actual.mis_cursos[op - 1]
 
-                # Muestra el nombre del curso y la contraseña de matriculación
+                # muestra el nombre del curso y la contraseña de matriculación
                 print(f"Nombre: {curso_seleccionado.nombre}")
                 print(f"Contraseña de matriculación: {curso_seleccionado.contrasenia_matriculacion}")
 
