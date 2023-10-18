@@ -3,6 +3,8 @@ import submenualumno
 import profesor
 import submenuprofesor
 
+#Agregar todos los print e input en el app/submenus
+
 
 ejecutar_programa = True 
 

@@ -6,7 +6,7 @@ class Usuario(ABC):
     def __init__(self, nombre: str, apellido: str, email: str, contrasenia: str):
         self._nombre = nombre  
         self._apellido = apellido  
-
+            
         if email in Usuario.conj_emails:
             raise ValueError("El email ya existe, debe proporcionar otro")
         else:
@@ -15,6 +15,7 @@ class Usuario(ABC):
 
         self._contrasenia = contrasenia 
 
+    #agregar setters
     @property
     def nombre(self):
         return self._nombre

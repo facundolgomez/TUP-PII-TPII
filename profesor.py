@@ -30,6 +30,8 @@ class Profesor(Usuario):
         print("Correo electronico o contraseña incorrecta ")
         
 
+
+#Pasar a submenuprofe
 profe = Profesor("Carlos", "rodriguez", "mailprofe", "contra", "ingeniero", 1998)
 lista_profes_registrados.append(profe)
 
