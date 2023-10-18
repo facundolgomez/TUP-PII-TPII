@@ -2,8 +2,6 @@ from usuario import Usuario
 from curso import Curso
 
 
-lista_profes_registrados = []
-
 class Profesor(Usuario):
     def __init__(self, nombre: str, apellido: str, email: str, contrasenia: str, titulo: str, anio_egreso: int):
         super().__init__(nombre, apellido, email, contrasenia)
@@ -25,22 +23,15 @@ class Profesor(Usuario):
         for profe in lista_profes_registrados:
             if profe.email == email and profe.contrasenia == contrasenia_ingresada:
                 acceso_concedido = True
-                print("ACCESO EXITOSO")
                 return acceso_concedido
-        print("Correo electronico o contraseña incorrecta ")
+        
         
 
 
-#Pasar a submenuprofe
-profe = Profesor("Carlos", "rodriguez", "mailprofe", "contra", "ingeniero", 1998)
-lista_profes_registrados.append(profe)
 
-#tener en cuenta que esta funcion es para buscar si existe el profesor, no pertenece a la clase
-def buscando_profesor(email):
-    for profe in lista_profes_registrados:
-        if profe.email == email:
-            return profe
-    return None
+
+
+
 
 
   
