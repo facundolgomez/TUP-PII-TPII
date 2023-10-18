@@ -52,3 +52,4 @@ class Usuario(ABC):
     def validar_credenciales(self, email: str, contrasenia: str) -> bool:
         pass
 
+
