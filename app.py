@@ -3,6 +3,7 @@ import submenualumno
 import profesor
 import submenuprofesor
 
+<<<<<<< HEAD
 #funciones para busqueda
 def buscando_profesor(email):
     for profe in lista_profes_registrados:
@@ -38,6 +39,9 @@ estudiante2 = estudiante.Estudiante("lucas", "diaz", "otromail", "contra", 75632
 lista_alum_registrado.append(estudiante2)
 
 
+=======
+#Agregar todos los print e input en el app/submenus
+>>>>>>> 16cf1dd57bc8bc71bb6d5d5c085be7c3c78fd64b
 
 
 ejecutar_programa = True 

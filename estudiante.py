@@ -41,7 +41,34 @@ class Estudiante(Usuario):
    
 
 
+<<<<<<< HEAD
     
+=======
+
+#Pasar a submenualum
+
+while True:
+    try:
+    
+        estudiante1 = Estudiante("franco", "gonzalez", "mail", "contra", 434312, 2022)
+        lista_alum_registrado.append(estudiante1)
+        break
+    except:
+        print("Usuario repetido")
+    
+
+
+    estudiante2 = Estudiante("lucas", "diaz", "otromail", "contra", 75632, 2022)
+    lista_alum_registrado.append(estudiante2)
+
+#funcion para buscar si el estudiante existe, no pertenece a la clase
+def buscando_estudiante(email):
+    for estudiante in lista_alum_registrado:
+        if estudiante.email == email:
+            return estudiante
+    return None
+
+>>>>>>> 16cf1dd57bc8bc71bb6d5d5c085be7c3c78fd64b
     
     
 
