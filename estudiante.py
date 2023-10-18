@@ -42,6 +42,7 @@ class Estudiante(Usuario):
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
@@ -69,6 +70,9 @@ def buscando_estudiante(email):
     return None
 
 >>>>>>> 16cf1dd57bc8bc71bb6d5d5c085be7c3c78fd64b
+=======
+    
+>>>>>>> 80bef683aa130b0243ff9f40d9e757881167d43e
     
     
 
