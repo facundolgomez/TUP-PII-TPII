@@ -1,6 +1,6 @@
 from usuario import Usuario
 from curso import Curso
-
+import procesos
 
 class Profesor(Usuario):
     def __init__(self, nombre: str, apellido: str, email: str, contrasenia: str, titulo: str, anio_egreso: int):
@@ -15,15 +15,12 @@ class Profesor(Usuario):
         self.mis_cursos.sort(key=lambda curso: curso.nombre)
 
     def __str__(self):
-        pass
+        return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Título: {self.__titulo}, Año de Egreso: {self.__anio_egreso}"
 
     
     def validar_credenciales(self, email, contrasenia_ingresada) -> bool:
-        acceso_concedido = False
-        for profe in lista_profes_registrados:
-            if profe.email == email and profe.contrasenia == contrasenia_ingresada:
-                acceso_concedido = True
-                return acceso_concedido
+        return self.email == email and self.contrasenia == contrasenia_ingresada
+
         
         
 
