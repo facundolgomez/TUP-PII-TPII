@@ -52,8 +52,8 @@ class Usuario(ABC):
     def contrasenia(self, nueva_contrasenia):
         self._contrasenia = nueva_contrasenia   
 
-    @abstractmethod
-    def validar_credenciales(self, email: str, contrasenia: str) -> bool:
-        pass
+    
+    def validar_credenciales(self, email, contrasenia_ingresada) -> bool:
+        return self.email == email and self.contrasenia == contrasenia_ingresada
 
 
