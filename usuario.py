@@ -7,13 +7,15 @@ class Usuario(ABC):
         self._nombre = nombre  
         self._apellido = apellido  
 
-        if email in Usuario.conj_emails:
-            raise ValueError("El email ya existe, debe proporcionar otro")
-        else:
-            self._email = email  
-            Usuario.conj_emails.add(email)
+        while email in Usuario.conj_emails:
+            print("El email ya existe en el sistema. Ingrese otro por favor.")
+            email = input("Nuevo correo electrónico: ")
 
-        self._contrasenia = contrasenia 
+        self._email = email  
+        Usuario.conj_emails.add(email)
+
+        self._contrasenia = contrasenia
+
 
 
     #getters y setters    
