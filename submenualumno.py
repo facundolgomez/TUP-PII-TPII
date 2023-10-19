@@ -1,57 +1,57 @@
-import profesor
 import curso
-import estudiante
+from procesos import lista_cursos_campus
 
-def submenu(profesor_actual):
+
+def submenu(estudiante_actual):
     while True:
-        print("1 -> Dictar curso")
-        print("2 -> Ver curso")
+        print("1 -> Matricularse a un curso")
+        print("2 -> Ver cursos matriculados")
         print("3 -> Volver al menú principal")
         op = input("Seleccione una opción: ")
-
+        
         if op == "1":
-            # Dictar curso
-            nombre_curso = input("Ingrese el nombre del curso a dar de alta: ")
-            nuevo_curso = curso.Curso(nombre_curso)
-            profesor_actual.dictar_curso(nuevo_curso)
-            print(f"Curso '{nuevo_curso.nombre}' dado de alta con éxito.")
-            print(f"Nombre: {nuevo_curso.nombre}")
-            print(f"Contraseña: {nuevo_curso.contrasenia_matriculacion}")
-            #agregando una materia a la lista de cursos del campus
-            estudiante.Estudiante.lista_cursos_campus.append(nuevo_curso)
-            #ordeno la lista definitivamente para que cuando el usuario elija un curso coincida con los indices de la lista
-            estudiante.Estudiante.lista_cursos_campus.sort(key=lambda curso: curso.nombre)
-
-
-        elif op == "2":
-            # Ver cursos
-            if not profesor_actual.mis_cursos:
-                print("El profesor no ha dictado cursos todavía.")
+            if not lista_cursos_campus:
+                print("Todavia no hay cursos disponibles")
             else:
-                for num, curso_actual in enumerate(sorted(profesor_actual.mis_cursos, key=lambda curso: curso.nombre), start=1):
+                for num, curso_actual in enumerate(sorted(lista_cursos_campus, key=lambda curso: curso.nombre), start=1):
                     print(f"{num}- {curso_actual.nombre}")
-
 
                 validacion = True
                 while validacion:
-                    op = int(input("Ingrese el número del curso que desea ver: "))
-                    if 1 <= op <= len(profesor_actual.mis_cursos):
-                        validacion = False
+                    materia = input("Ingrese el número del curso a matricularse: ")
+                    if materia.isdigit():  # verificando si la entrada es un número
+                        materia_elegida = int(materia)
+                        if 1 <= materia_elegida <= len(lista_cursos_campus):
+                            curso_seleccionado = lista_cursos_campus[materia_elegida - 1]
+                            
+                        
+                        # Validar que el estudiante no esté ya matriculado en el curso
+                            if curso_seleccionado not in estudiante_actual.mis_cursos:
+                                resultado = estudiante_actual.matricular_en_curso(curso_seleccionado)
+                                if resultado:
+                                    print(f"Te has matriculado correctamente en el curso '{curso_seleccionado.nombre}'.")
+                                    validacion = False
+                                else:
+                                    print("Ha ingresado una contraseña incorrecta ") 
+                            
+                            else:
+                                print("Ya estás matriculado en este curso.")
+                    
                     else:
                         print("Opción no válida. Ingrese un número válido.")
                     
-                # obtiene el curso seleccionado
-                curso_seleccionado = profesor_actual.mis_cursos[op - 1]
-
-                # muestra el nombre del curso y la contraseña de matriculación
-                print(f"Nombre: {curso_seleccionado.nombre}")
-                print(f"Contraseña de matriculación: {curso_seleccionado.contrasenia_matriculacion}")
-
+        elif op == "2":
+            # lista de los cursos en los que el alumno se encuentra matriculado
+            if estudiante_actual.mis_cursos:
+                print("Materias en las que estás matriculado: ") 
+                for num, curso_actual in enumerate(estudiante_actual.mis_cursos, start=1):
+                    print(f"{num}- {curso_actual.nombre}")
+            else:
+                print("No estás matriculado en ninguna materia")        
+            
         elif op == "3":
-            # Volver al menú principal
             break
+            
         else:
             print("Opción no válida")
-
-
 
