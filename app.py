@@ -2,6 +2,7 @@ import submenualumno
 import submenuprofesor
 import procesos
 
+
 ejecutar_programa = True 
 
 while ejecutar_programa:

@@ -1,6 +1,5 @@
 import profesor
 import curso
-import estudiante
 import procesos
 
 def submenu(profesor_actual):

@@ -1,6 +1,6 @@
 from usuario import Usuario
 from curso import Curso
-import procesos
+
 
 class Profesor(Usuario):
     def __init__(self, nombre: str, apellido: str, email: str, contrasenia: str, titulo: str, anio_egreso: int):

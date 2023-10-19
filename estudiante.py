@@ -1,6 +1,5 @@
 from usuario import Usuario
 from curso import Curso
-import procesos
 
 
 class Estudiante(Usuario):

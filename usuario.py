@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Usuario(ABC):
     conj_emails = set()
 
