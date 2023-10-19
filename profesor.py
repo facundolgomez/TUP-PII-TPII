@@ -18,8 +18,7 @@ class Profesor(Usuario):
         return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Título: {self.__titulo}, Año de Egreso: {self.__anio_egreso}"
 
     
-    def validar_credenciales(self, email, contrasenia_ingresada) -> bool:
-        return self.email == email and self.contrasenia == contrasenia_ingresada
+    
 
         
         
