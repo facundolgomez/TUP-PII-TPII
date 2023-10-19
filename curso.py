@@ -5,7 +5,7 @@ import string
 class Curso:
     def __init__(self, nombre: str):
         self.__nombre = nombre
-        self.__contrasenia_matriculacion = __generador_contrasenia()
+        self.__contrasenia_matriculacion = self.__generador_contrasenia()
 
     def __str__(self):
         return f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}"
