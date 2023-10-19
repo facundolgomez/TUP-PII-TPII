@@ -28,9 +28,7 @@ class Estudiante(Usuario):
         return False  
 
 
-    
-    def validar_credenciales(self, email: str, contrasenia_ingresada: str) -> bool:
-        return self.email == email and self.contrasenia == contrasenia_ingresada 
+
         
     
     
