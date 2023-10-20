@@ -8,11 +8,27 @@ class Estudiante(Usuario):
         self.__legajo = legajo
         self.__anio_inscripcion_carrera = anio_inscripcion_carrera
         self.mis_cursos = []  
-
-
+        
     def __str__(self):
         return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Legajo: {self.__legajo}, Año de Inscripcion: {self.__anio_inscripcion_carrera}"
+    
+    #getters y setters  
 
+    @property
+    def legajo(self) -> str:
+        return self.__legajo
+    
+    @legajo.setter
+    def legajo(self,nuevo_legajo):
+        self.__legajo = nuevo_legajo
+        
+    @property
+    def anio_inscripcion_carrera(self) -> str:
+        return self.__anio_inscripcion_carrera
+    
+    @anio_inscripcion_carrera.setter
+    def anio_inscripcion_carrera(self,nuevo_anio_inscripcion_):
+        self.__anio_inscripcion_carrera=nuevo_anio_inscripcion_
     
     def matricular_en_curso(self, curso_seleccionado: Curso):
         contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso_seleccionado.nombre}': ")
