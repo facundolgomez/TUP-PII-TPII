@@ -16,10 +16,26 @@ class Profesor(Usuario):
 
     def __str__(self):
         return f"Nombre: {self.nombre}, Apellido: {self.apellido}, Título: {self.__titulo}, Año de Egreso: {self.__anio_egreso}"
+    
+    #getters y setters  
 
+    @property
+    def titulo(self):
+        return self.__titulo
+    
+    @titulo.setter
+    def titulo(self,nuevo_titulo):
+        self.__titulo = nuevo_titulo
+        
+    @property
+    def anio_egreso(self):
+        return self.__anio_egreso
+    
+    @anio_egreso.setter
+    def anio_egreso(self, nuevo_anio_egreso):
+        self.__anio_egreso = nuevo_anio_egreso
     
     
-
         
         
 
