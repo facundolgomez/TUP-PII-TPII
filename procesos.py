@@ -7,7 +7,8 @@ def buscando_profesor(email):
     """
     Funcion busqueda de profesor
     
-    Esta función busca un profesor por su dirección de correo electrónico en una lista de profesores registrados.
+    Esta función busca un profesor por su dirección de correo electrónico en una 
+    lista de profesores registrados.
     """
     for profe in lista_profes_registrados:
         if profe.email == email:
@@ -19,7 +20,8 @@ def buscando_estudiante(email):
     """
     Funcion busqueda de estudiante
     
-    Esta función busca un estudiante por su dirección de correo electrónico en una lista de estudiantes registrados.
+    Esta función busca un estudiante por su dirección de correo electrónico en una 
+    lista de estudiantes registrados.
     """
     for estudiante in lista_alum_registrado:
         if estudiante.email == email:
@@ -27,19 +29,24 @@ def buscando_estudiante(email):
     return None
 
 
-lista_profes_registrados = [] #lista para los profes registrados
+# Lista para los profesores registrados
+lista_profes_registrados = [] 
 
-lista_alum_registrado = [] #lista para alumnos registrados
+# Lista para alumnos registrados
+lista_alum_registrado = [] 
 
-lista_cursos_campus = [] #lista de cursos del campus
+# Lista de cursos del campus
+lista_cursos_campus = ["Programación I", "Programación II", "Laboratorio I", "Ingles I", "Ingles II"]
 
-
-profe = profesor.Profesor("Carlos", "rodriguez", "mailprofe", "contra", "ingeniero", 1998) #Instancia de profesor
+# Instancia de profesor
+profe = profesor.Profesor("Carlos", "Rodriguez", "mailprofe", "contra", "ingeniero", 1998) 
 lista_profes_registrados.append(profe)
 
-estudiante1 = estudiante.Estudiante("franco", "gonzalez", "mail", "contra", 434312, 2022) #Instancia de estudiante
+# Instancia de estudiante
+estudiante1 = estudiante.Estudiante("franco", "gonzalez", "mail", "contra", 434312, 2022)
 lista_alum_registrado.append(estudiante1)
 
-estudiante2 = estudiante.Estudiante("lucas", "diaz", "otromail", "contra", 75632, 2022) #Instancia de estudiante
+# Instancia de estudiante
+estudiante2 = estudiante.Estudiante("lucas", "diaz", "otromail", "contra", 75632, 2022) 
 lista_alum_registrado.append(estudiante2)
 

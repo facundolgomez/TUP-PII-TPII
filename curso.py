@@ -28,8 +28,5 @@ class Curso:
         for x in range(longitud):
             contrasenia += random.choice(caracteres)
         return contrasenia
-
-
-
         
         
