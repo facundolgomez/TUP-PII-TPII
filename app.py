@@ -76,9 +76,3 @@ while ejecutar_programa:
     else:
         print("Ingrese un número válido.")
         print("")
-
-
-
-
-
-
