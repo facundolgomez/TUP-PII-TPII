@@ -25,9 +25,27 @@ while ejecutar_programa:
             for un_estudiante in procesos.lista_alum_registrado:
                 if un_estudiante.validar_credenciales(gmail, password):
                     print("ACCESO EXITOSO")
+                    print("# Ingresar como alumno")
+    if op == "1":
+        gmail = input("Ingrese su correo electrónico: ")
+        password = input("Ingrese su contraseña: ")
+        un_estudiante = procesos.buscando_estudiante(gmail)
+
+        if un_estudiante:
+            for un_estudiante in procesos.lista_alum_registrado:
+                if un_estudiante.validar_credenciales(gmail, password):
+                    print("ACCESO EXITOSO")
                     print("")
                     submenualumno.submenu(un_estudiante)
                     break
+            else:
+                print("Correo electronico o contraseña incorrecta")
+                print("")
+        else:
+            print("El estudiante no existe. Debe darse de alta en alumnado.")
+            print("")
+            submenualumno.submenu(un_estudiante)
+            break
             else:
                 print("Correo electronico o contraseña incorrecta")
                 print("")

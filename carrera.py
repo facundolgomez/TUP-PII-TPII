@@ -1,4 +1,4 @@
-#modulo de carreras, ya que el enunciado dice que el sistema cuenta con una carrera dada de alta
+#modulo de carreras, ya que el enunciado dice que el sistema cuenta con una carrera dada de alta, se usará mas adelante
 
 
 class Carrera:
