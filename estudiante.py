@@ -15,22 +15,17 @@ class Estudiante(Usuario):
 
     
     def matricular_en_curso(self, curso_seleccionado: Curso):
-        # Validar si el estudiante ya esta registrado en el curso
-        if curso_seleccionado in self.mis_cursos:
-            print("Ya estás matriculado en este curso.")
-            return False
-
-        contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso_seleccionado.nombre}':")
-        
+        contrasenia_matriculacion = input(f"Ingrese la contraseña de matriculación para '{curso_seleccionado.nombre}': ")
         # Validar la contraseña
         if contrasenia_matriculacion == curso_seleccionado.contrasenia_matriculacion:
-            self.mis_cursos.append(curso_seleccionado)
-            # Ordenar la lista de cursos para ese estudiante
-            self.mis_cursos.sort(key=lambda curso: curso.nombre)
-            return True  # Matriculación exitosa
-        else:
-            print("Contraseña incorrecta.")
-            return False  # Matriculación fallida
+            if curso_seleccionado not in self.mis_cursos:
+                self.mis_cursos.append(curso_seleccionado)
+                # Ordenando la lista de cursos para ese estudiante
+                self.mis_cursos.sort(key=lambda curso: curso.nombre)
+                return True  # Matriculacion exitosa
+            
+        return False  
+
 
 
 

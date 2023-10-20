@@ -57,17 +57,17 @@ while ejecutar_programa:
 
     # Lista de cursos del campus virtual    
     elif op == "3":
-        # Ordena la lista alfabéticamente
-        lista_cursos_ordenados = sorted(procesos.lista_cursos_campus)
+        if procesos.lista_cursos_campus:
+            longitud = max(len(curso.nombre) for curso in procesos.lista_cursos_campus)
+            for curso in sorted(procesos.lista_cursos_campus, key=lambda curso: curso.nombre):
+                # Ajusta los espacios para que el texto se muestre justificado
+                nombre_curso = curso.nombre.ljust(longitud)
+                print(f"Materia: {nombre_curso} Carrera: Tecnicatura Universitaria en Programación")
+            print("")
 
-        longitud_maxima_materia = max(len(f"Materia: {curso}") for curso in procesos.lista_cursos_campus)
-
-        for curso in lista_cursos_ordenados:
-            # Establece el espacio sobrante hacia la derecha del nombre de la materia
-            espacio_derecha = " " * (longitud_maxima_materia - len(f"Materia: {curso}"))
-            print(f"Materia: {curso}{espacio_derecha} Carrera: Tecnicatura Universitaria en Programación")
-
-        print("")
+        else:
+            print("Todavia no hay cursos disponibles en el campus virtual")
+            print("")
 
     elif op == "4":
         print("¡Hasta luego!")

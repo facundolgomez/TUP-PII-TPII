@@ -36,7 +36,7 @@ lista_profes_registrados = []
 lista_alum_registrado = [] 
 
 # Lista de cursos del campus
-lista_cursos_campus = ["Programación I", "Programación II", "Laboratorio I", "Ingles I", "Ingles II"]
+lista_cursos_campus = []
 
 # Instancia de profesor
 profe = profesor.Profesor("Carlos", "Rodriguez", "mailprofe", "contra", "ingeniero", 1998) 
