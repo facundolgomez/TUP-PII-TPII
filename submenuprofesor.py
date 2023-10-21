@@ -2,7 +2,9 @@ import profesor
 import curso
 import procesos
 
+
 def submenu(profesor_actual):
+    print(f"Bienvenido profesor {profesor_actual.nombre} {profesor_actual.apellido}")
     while True:
         print("1 -> Dictar curso")
         print("2 -> Ver curso")
@@ -17,20 +19,21 @@ def submenu(profesor_actual):
             print(f"Curso '{nuevo_curso.nombre}' dado de alta con éxito.")
             print(f"Nombre: {nuevo_curso.nombre}")
             print(f"Contraseña: {nuevo_curso.contrasenia_matriculacion}")
-            #agregando una materia a la lista de cursos del campus
+            # Agregando una materia a la lista de cursos del campus
             procesos.lista_cursos_campus.append(nuevo_curso)
-            #ordeno la lista definitivamente para que cuando el usuario elija un curso coincida con los indices de la lista
+            # Ordeno la lista definitivamente para que cuando el usuario elija un curso coincida con los indices de la lista
             procesos.lista_cursos_campus.sort(key=lambda curso: curso.nombre)
-
 
         elif op == "2":
             # Ver cursos
             if not profesor_actual.mis_cursos:
-                print("El profesor no ha dictado cursos todavía.")
+                print("El profesor no ha dictado cursos todavía.\n")
             else:
-                for num, curso_actual in enumerate(sorted(profesor_actual.mis_cursos, key=lambda curso: curso.nombre), start=1):
+                for num, curso_actual in enumerate(
+                    sorted(profesor_actual.mis_cursos, key=lambda curso: curso.nombre),
+                    start=1,
+                ):
                     print(f"{num}- {curso_actual.nombre}")
-
 
                 validacion = True
                 while validacion:
@@ -41,20 +44,19 @@ def submenu(profesor_actual):
                             validacion = False
                         else:
                             print("Opción no válida. Ingrese un número válido.")
-                    
-                # obtiene el curso seleccionado
+
+                # Obtiene el curso seleccionado
                 curso_seleccionado = profesor_actual.mis_cursos[op - 1]
 
-                # muestra el nombre del curso y la contraseña de matriculación
+                # Muestra el nombre del curso y la contraseña de matriculación
                 print(f"Nombre: {curso_seleccionado.nombre}")
-                print(f"Contraseña de matriculación: {curso_seleccionado.contrasenia_matriculacion}")
+                print(
+                    f"Contraseña de matriculación: {curso_seleccionado.contrasenia_matriculacion}\n"
+                )
 
         elif op == "3":
-            # Volver al menú principal
+            print("Volviendo al menu principal...\n")
             break
+
         else:
-            print("Opción no válida")
-
-
-
-
+            print("Opción no válida.\n")
