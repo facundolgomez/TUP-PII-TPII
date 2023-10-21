@@ -8,25 +8,27 @@ class Curso:
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
 
     def __str__(self):
-        return f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}"
-
+        return (
+            f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}"
+        )
 
     @property
     def nombre(self):
         return self.__nombre
 
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        self.__nombre = nuevo_nombre
+
     @property
     def contrasenia_matriculacion(self):
-        return self.__contrasenia_matriculacion    
-
+        return self.__contrasenia_matriculacion
 
     @staticmethod
     def __generador_contrasenia() -> str:
         longitud = 6
         caracteres = string.ascii_letters + string.digits
-        contrasenia = ''
+        contrasenia = ""
         for x in range(longitud):
             contrasenia += random.choice(caracteres)
         return contrasenia
-        
-        
