@@ -1,6 +1,7 @@
 import submenualumno
 import submenuprofesor
 import procesos
+import profesor
 
 ejecutar_programa = True
 
@@ -45,7 +46,30 @@ while ejecutar_programa:
             else:
                 print("Correo electronico o contraseña incorrecta.\n")
         else:
-            print("El profesor no existe. Debe darse de alta en alumnado.\n")
+            print("El profesor no existe. Debe darse de alta en alumnado.")
+            posee_codigo = input("¿Posee código de alta? Ingrese V/F: ")
+            posee_codigo = posee_codigo.lower()
+            if posee_codigo == "v":
+                codigo_alta = input("\nIngrese el código de alta: ")
+                if codigo_alta == "admin":
+                    print("Por favor complete los siguientes campos para darse de alta: ")
+                    nombre = input("Ingrese su nombre: ")
+                    apellido = input("Ingrese su apellido: ")
+                    mail = input("Ingrese su email: ")
+                    contrasenia = input("Ingrese una contraseña: ")
+                    titulo = input("Ingrese su titulo: ")
+                    anio_egreso = input("Ingrese su año de egreso (AAAA): ")
+
+                    profe_nuevo = profesor.Profesor(nombre, apellido, mail, contrasenia, titulo, anio_egreso)
+                    procesos.lista_profes_registrados.append(profe_nuevo)
+                    print("Profesor registrado\n")
+                else:
+                    print("Código de alta erroneo.\n")
+            elif posee_codigo == "f":
+                print("Para darse de alta solicite el código en alumnado.\n")
+            else:
+                print("Opción incorrecta.\n")
+
     # Lista de cursos del campus virtual
     elif op == "3":
         if procesos.lista_cursos_campus:

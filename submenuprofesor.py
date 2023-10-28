@@ -1,6 +1,8 @@
 import profesor
 import curso
 import procesos
+from archivo import Archivo
+
 
 
 def submenu(profesor_actual):
@@ -18,7 +20,10 @@ def submenu(profesor_actual):
             profesor_actual.dictar_curso(nuevo_curso)
             print(f"Curso '{nuevo_curso.nombre}' dado de alta con éxito.")
             print(f"Nombre: {nuevo_curso.nombre}")
+            print(f"El código es: {nuevo_curso.codigo}")
             print(f"Contraseña: {nuevo_curso.contrasenia_matriculacion}")
+
+            
             # Agregando una materia a la lista de cursos del campus
             procesos.lista_cursos_campus.append(nuevo_curso)
             # Ordeno la lista definitivamente para que cuando el usuario elija un curso coincida con los indices de la lista
@@ -50,10 +55,27 @@ def submenu(profesor_actual):
 
                 # Muestra el nombre del curso y la contraseña de matriculación
                 print(f"Nombre: {curso_seleccionado.nombre}")
+                print(f"Código: {curso_seleccionado.codigo}")
                 print(
-                    f"Contraseña de matriculación: {curso_seleccionado.contrasenia_matriculacion}\n"
+                    f"Contraseña de matriculación: {curso_seleccionado.contrasenia_matriculacion}"
                 )
+                print(f"Cantidad de archivos: {len(curso_seleccionado.mis_archivos)}")
 
+                msj_adjunto = input("Desea agregar un archivo adjunto? V/F ")
+                msj_adjunto = msj_adjunto.lower()
+                if msj_adjunto == "v":
+                    nombre_archivo = input("Ingrese nombre del archivo: ")
+                    formato = input("Ingrese formato del archivo: ")
+                    archivo_creado = Archivo(nombre_archivo, formato)
+                    curso_seleccionado.mis_archivos.append(archivo_creado)
+                    print("Archivo registrado correctamente\n")
+                
+                elif msj_adjunto == "f":
+                    continue
+
+                else:
+                    print("Opción incorrecta\n")    
+                   
         elif op == "3":
             print("Volviendo al menu principal...\n")
             break
