@@ -6,8 +6,9 @@ def submenu(estudiante_actual):
     print(f"Bienvenido alumno {estudiante_actual.nombre} {estudiante_actual.apellido}")
     while True:
         print("1 -> Matricularse a un curso")
-        print("2 -> Ver cursos matriculados")
-        print("3 -> Volver al menú principal")
+        print("2 -> Desmatricularse de un curso")
+        print("3 -> Ver cursos matriculados")
+        print("4 -> Volver al menú principal")
         op = input("Seleccione una opción: ")
 
         if op == "1":
@@ -52,6 +53,46 @@ def submenu(estudiante_actual):
                         print("Opción no válida. Ingrese un número válido.")
 
         elif op == "2":
+            # Desmatricularse de un curso
+            if not lista_cursos_campus:
+                print("Todavia no hay cursos disponibles.\n")
+
+            elif not estudiante_actual.mis_cursos:
+                print("Todavia no estas registrado en ningún curso.\n")
+
+            else:
+                validacion = True
+                while validacion:
+                    for num, curso_actual in enumerate(
+                        sorted(estudiante_actual.mis_cursos, key=lambda curso: curso.nombre), start=1
+                    ):
+                        print(f"{num}- {curso_actual.nombre}")
+
+                    materia = input("Ingrese el número del curso a desmatricularse: ")
+                    if materia.isdigit():  # Verifica si la entrada es un número
+                        materia_elegida = int(materia)
+                        if 1 <= materia_elegida <= len(estudiante_actual.mis_cursos):
+                            curso_seleccionado = estudiante_actual.mis_cursos[
+                                materia_elegida - 1
+                            ]
+
+                            if curso_seleccionado:
+                                        estudiante_actual.mis_cursos.remove(curso_seleccionado)
+                                        print(
+                                            f"Te has desmatriculado correctamente del curso '{curso_seleccionado.nombre}'.\n"
+                                        )
+                                        validacion = False
+                        else:
+                            desea_salir = input("Opción no válida. ¿Desea salir? V/F ")
+                            desea_salir = desea_salir.lower()
+                            if desea_salir == "v":
+                                validacion = False
+                            elif desea_salir == "f":
+                                validacion = True
+                            else:
+                                print("Opción no válida. Intente nuevamente.\n")                            
+
+        elif op == "3":
             # Lista de los cursos en los que el alumno se encuentra matriculado
             if estudiante_actual.mis_cursos:
                 print("Materias en las que estás matriculado: ")
@@ -61,10 +102,9 @@ def submenu(estudiante_actual):
                     print(f"{num}- {curso_actual.nombre}")
                 print("")
             else:
-                print("No estás matriculado en ninguna materia.")
-                print("")
+                print("No estás matriculado en ninguna materia.\n")
 
-        elif op == "3":
+        elif op == "4":
             print("Volviendo al menu principal...\n")
             break
 
