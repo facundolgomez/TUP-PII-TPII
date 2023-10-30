@@ -1,6 +1,7 @@
 import random
 import string
 from archivo import Archivo
+from carrera import Carrera
 
 
 class Curso:
@@ -11,6 +12,7 @@ class Curso:
         self.__nombre = nombre
         self.__contrasenia_matriculacion = self.__generador_contrasenia()
         self.__mis_archivos = []
+        self.__carrera = Carrera
 
     @classmethod
     def __generar_prox_cod(cls):
@@ -50,7 +52,7 @@ class Curso:
 
     def __str__(self):
         return (
-            f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}"
+            f"Nombre: {self.__nombre}\nContraseña: {self.__contrasenia_matriculacion}\n Carrera: {self.__carrera}"
         )
 
     @staticmethod
@@ -61,3 +63,11 @@ class Curso:
         for x in range(longitud):
             contrasenia += random.choice(caracteres)
         return contrasenia
+    
+    @property
+    def carrera(self):
+        return self.__carrera
+
+    @carrera.setter
+    def carrera(self, nueva_carrera: Carrera):
+        self.__carrera = nueva_carrera

@@ -1,4 +1,3 @@
-
 class Carrera:
     def __init__(self, nombre: str, cant_anios: int):
         self.__nombre = nombre
@@ -23,5 +22,6 @@ class Carrera:
     def __str__(self):
         return f"Nombre carrera: {self.nombre}. Cantidad de años: {self.cant_anios}"
 
-    def get_cantidad_materias(self) -> int:
-        pass
+    def get_cantidad_materias(self, lista_cursos) -> int:
+        return len(lista_cursos)
+        

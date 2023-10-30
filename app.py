@@ -2,6 +2,7 @@ import submenualumno
 import submenuprofesor
 import procesos
 import profesor
+from carrera import Carrera
 
 ejecutar_programa = True
 
@@ -78,9 +79,8 @@ while ejecutar_programa:
                 procesos.lista_cursos_campus, key=lambda curso: curso.nombre):
                 # Justificado de texto
                 nombre_curso = curso.nombre.ljust(longitud)
-                print(
-                    f"Materia: {nombre_curso} Carrera: Tecnicatura Universitaria en Programación")
-            print("")
+                print(f"Materia: {nombre_curso} Carrera: {procesos.carrera1.nombre}")
+            print(f"Cantidad de cursos en la carrera: {procesos.carrera1.get_cantidad_materias(procesos.lista_cursos_campus)}\n")
 
         else:
             print("Todavia no hay cursos disponibles en el campus virtual.\n")

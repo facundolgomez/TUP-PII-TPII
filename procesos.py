@@ -1,7 +1,7 @@
 import profesor
 import estudiante
 import curso
-
+import carrera
 
 def buscando_profesor(email):
     """
@@ -49,3 +49,6 @@ lista_alum_registrado.append(estudiante1)
 # Instancia de estudiante 2
 estudiante2 = estudiante.Estudiante("Lucas", "Diaz", "otromail", "contra", 75632, 2022)
 lista_alum_registrado.append(estudiante2)
+
+# Instancia de carrera
+carrera1 = carrera.Carrera("Tecnicatura Universitaria en Programación", 2)
